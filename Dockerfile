@@ -15,7 +15,6 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 RUN cd /tmp && \
   git clone https://github.com/IntelRealSense/librealsense.git && \
   cd librealsense && \
-  ./scripts/setup_udev_rules.sh  && \
   mkdir build && \
   cmake -S . -B build -GNinja \
   -DBUILD_EXAMPLES=true \
