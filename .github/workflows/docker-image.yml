@@ -43,7 +43,16 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build and push
+      - name: Build and push Docker image on main branch
+        if: github.ref == 'refs/heads/main' # only run this step on the 'main' branch
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: ./Dockerfile
+          tags: ghcr.io/${{ github.repository }}/damn_you_realsense:latest
+
+      - name: Build Docker image on dev branch
+        if: github.ref == 'refs/heads/dev' # only run this step on the 'dev' branch
         uses: docker/build-push-action@v2
         with:
           context: .
