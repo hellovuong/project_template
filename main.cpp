@@ -17,7 +17,6 @@ int main() {
 
   if (list.size() == 0) {
     throw std::runtime_error("No device detected. Is it plugged in?");
-    return EXIT_FAILURE;
   }
 
   rs2::device dev = list.front();
