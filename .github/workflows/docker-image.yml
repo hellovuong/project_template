@@ -9,6 +9,18 @@ on:
     types: [ opened, synchronize, reopened ]
 
 jobs:
+  clang_format_check:
+    name: Clang Format Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install clang-format
+        run: sudo apt-get install -y clang-format-10
+      - name: Check code formatting
+        run: |
+          find . -regex '.*\.\(cpp\|hpp\|cc\|cxx\|h\)' -exec clang-format-10 -style=file -i {} \;
+          git diff --exit-code # this will fail if clang-format made any changes
+
   build-and-push:
     runs-on: ubuntu-latest
 
