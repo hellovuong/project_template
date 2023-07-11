@@ -1,10 +1,19 @@
+#include <csignal>
 #include <iostream>
 #include <librealsense2/h/rs_sensor.h>
 #include <librealsense2/hpp/rs_frame.hpp>
 #include <librealsense2/hpp/rs_types.hpp>
 #include <librealsense2/rs.hpp>
 
+void signalHandler(int signum) {
+    std::cout << "Interrupt signal (" << signum << ") received.\n";
+    exit(signum);
+}
+
 int main() {
+    // Register signal and signal handler
+    signal(SIGINT, signalHandler);
+
     rs2::context ctx;
     rs2::pipeline pipe;
     rs2::config cfg;
