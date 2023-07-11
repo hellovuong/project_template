@@ -1,4 +1,3 @@
-#include <cstdlib>
 #include <iostream>
 #include <librealsense2/h/rs_sensor.h>
 #include <librealsense2/hpp/rs_frame.hpp>
@@ -24,13 +23,13 @@ int main() {
   std::string serial_number = dev.get_info(RS2_CAMERA_INFO_SERIAL_NUMBER);
   std::string firmware_version = dev.get_info(RS2_CAMERA_INFO_FIRMWARE_VERSION);
   std::string usb_type = dev.get_info(RS2_CAMERA_INFO_USB_TYPE_DESCRIPTOR);
-  std::string pysical_port = dev.get_info(RS2_CAMERA_INFO_PHYSICAL_PORT);
+  std::string physical_port = dev.get_info(RS2_CAMERA_INFO_PHYSICAL_PORT);
   std::string designed_usb = dev.get_info(RS2_CAMERA_INFO_USB_TYPE_DESCRIPTOR);
 
   std::cout << "Device Serial Number: " << serial_number << std::endl;
   std::cout << "Device Firmware Version: " << firmware_version << std::endl;
   std::cout << "USB Connection Type: " << usb_type << std::endl;
-  std::cout << "Physical port: " << pysical_port << std::endl;
+  std::cout << "Physical port: " << physical_port << std::endl;
   std::cout << "Designated USB: " << designed_usb << std::endl;
 
   try {
