@@ -25,7 +25,7 @@ RUN cd /tmp && \
   -DCMAKE_CUDA_COMPILER=/usr/local/cuda/bin/nvcc && \
   cmake --build build && cmake --install build
 
-RUN ./ /tmp/damn_you_realsense
+COPY ./ /tmp/damn_you_realsense
 
 RUN cd /tmp/damn_you_realsense && \
   mkdir build && \
