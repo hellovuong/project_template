@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - dev
+      - main
   pull_request:
     types: [ opened, synchronize, reopened ]
 
@@ -24,6 +25,18 @@ jobs:
         run: |
           find . -regex '.*\.\(cpp\|hpp\|cc\|cxx\|h\)' -exec clang-format-10 -style=file -i {} \;
           git diff --exit-code # this will fail if clang-format made any changes
+
+  code-quality-check:
+    name: Code Quality Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install cppcheck
+        run: sudo apt-get install -y cppcheck
+
+      - name: Run cppcheck
+        run: cppcheck --enable=all --error-exitcode=1 --inconclusive --force --inline-suppr --suppressions-list=suppressions.cfg .
 
   build-and-push:
     runs-on: ubuntu-latest
