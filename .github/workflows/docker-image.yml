@@ -3,7 +3,6 @@ name: Build and Push Docker Image
 on:
   push:
     branches:
-      - main
       - dev
   pull_request:
     types: [ opened, synchronize, reopened ]
@@ -52,6 +51,7 @@ jobs:
         with:
           context: .
           file: ./Dockerfile
+          push: true
           tags: ghcr.io/${{ github.repository }}/damn_you_realsense:latest
 
       - name: Build Docker image on dev branch
@@ -60,5 +60,5 @@ jobs:
         with:
           context: .
           file: ./Dockerfile
-          push: true
+          push: false
           tags: ghcr.io/${{ github.repository }}:${{ github.sha }}
