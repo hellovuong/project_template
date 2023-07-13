@@ -36,5 +36,6 @@ This application is a basic example of using the librealsense library to stream 
 intended for production use, and doesn't handle all possible error cases or camera configurations.
 
 ## TODO
-- [ ] Add library
-- [ ] Add unit tests and test coverage
+
+*   \[ ] Add library
+*   \[ ] Add unit tests and test coverage
