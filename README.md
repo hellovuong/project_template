@@ -1,5 +1,7 @@
 # RealSense Camera Test
 
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/4884f3b19f68456ebb3c6ce409759686)](https://app.codacy.com?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+
 This C++ application is a basic RealSense camera streamer. It uses the librealsense library to communicate with a RealSense camera, and streams the color and depth data from the camera.
 
 ## Features
@@ -17,9 +19,9 @@ This C++ application is a basic RealSense camera streamer. It uses the librealse
 
 To build and run the application, follow these steps:
 
-1. Clone the repository and navigate to the directory containing the source code.
+1. Clone the repository and navigate to the source code's directory.
 2. Compile the code using your preferred C++ compiler.
-3. Run the resulting executable. If the RealSense camera is properly connected and detected, you will start seeing the color and depth data stream, along with the frames per second.
+3. Run the resulting executable. If the RealSense camera is connected correctly and detected, you will start seeing the color and depth data stream and the frames per second.
 
 ## Interrupting the Stream
 
