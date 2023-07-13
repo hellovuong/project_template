@@ -5,7 +5,7 @@
 #include <librealsense2/hpp/rs_types.hpp>
 #include <librealsense2/rs.hpp>
 
-void signalHandler(int signum) {
+[[noreturn] ]void signalHandler(int signum) {
     std::cout << "Interrupt signal (" << signum << ") received.\n";
     exit(signum);
 }
